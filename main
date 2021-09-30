@@ -1,0 +1,46 @@
+const hasHindi = (str) => {
+ let strArr = str.split("");
+ for(let c of strArr) {
+   if(c.charCodeAt() >= 2309 && c.charCodeAt() <= 2361) {
+     return true
+   }
+ }
+ return false;
+};
+
+const hasEnglish = (str) => {
+   let strArr = str.split("");
+ for(let c of strArr) {
+   if((c.charCodeAt() >= 65 && c.charCodeAt() <= 90) || c.charCodeAt() >= 97 && c.charCodeAt() <= 122) {
+     return true
+   }
+ }
+ return false;
+}
+
+
+
+const hasArabic = (str) =>{
+  var arabic = /[\u0600-\u06FF]/;
+  return arabic.test(str)
+}
+
+//console.log(hasArabic("ﷲ"))
+
+//console.log(isEnglishfn("ABC"))
+//console.log(hasHindiCharacters("suraj सूरज "))
+//checkEnglishHindi("suraj सूरज")
+//console.log(checkEnglishHindi("suraj सूरज"))
+let str = "सूरज"
+
+if(hasEnglish(str) && hasHindi(str)) {
+  
+  console.log("You cannot use English and Hindi together.")
+} 
+else if (hasEnglish(str) && hasArabic(str)) {
+   console.log("You cannot use English and Arabic together.")
+} else {
+  console.log("Success")
+}
+
+
